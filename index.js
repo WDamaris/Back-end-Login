@@ -7,8 +7,9 @@ const mysql=require('mysql');
 const db=mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'password',
-    database: 'LOGINDatabase'
+    password: 'Newtonmw19&&',
+    database: 'LOGINDatabase',
+    
 })
 
 app.use (express.json()) 
@@ -18,15 +19,15 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.post("/register", (req,res) => {
     const userName=req.body.userName;
     const userEmail=req.body.userEmail;
-    const userPassword=req.body.userPasswword;
+    const userPassword=req.body.userPassword;
 db.query(
-    "INSERT INTO user_credentials(userName,userEmail,userPassword) VALUES(?,?)",
+    "INSERT INTO user_credentials(userName,userEmail,userPassword) VALUES(?,?,?)",
 [userName,userEmail,userPassword],
 (err,result) =>{
-    console.log(err)
+    console.log(result)
  }
 )
 })
 app.listen(3005,()=>{
-    console.log("running in port 3005")
+    console.log("running in port 4000")
 })
